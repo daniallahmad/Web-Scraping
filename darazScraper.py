@@ -56,7 +56,7 @@ class Products: # making class of product & using all the functions in it
         for img in imgUrls[4:]:
             x = img.get_attribute('src')
             if 'webp' in x:
-                x = x.replace('120x120', '720x720')
+                x = x.replace('120x120', '720x720') #converting all the images to 720'px
                 l.append(x)
             if 'png' in x:
                 break
@@ -72,11 +72,11 @@ class Products: # making class of product & using all the functions in it
 
     def getUploadDrive(self): # function to upload image in google drive
         headers = {
-            "Authorization": "Bearer ya29.a0ARrdaM_5VAfaft67_VkKRXuMnPPSVdp1J82tNO0QI9i41HhmNMvdWSqXj1jByQkvn_FUrTFqunbRZUi8QUHh0QqgrWi9PTLaiiJYYmpYuOxGBuBm5oX6NG_u-crpBnzU-3tEG7kdHBYFxJ1V5W385zZuuF2P"}
+            "Authorization": "Bearer ######enter access token from google drive api####"}
         for i in self.imageDownload:
             para = {
                 "name": i,
-                "parents": ["1GjxFwgM235BdxuOD7fOLccsTUbtABRE6"]
+                "parents": ["1GjxFwgM235BdxuOD7fOLccsTUbtABRE6"] # Google folder id 
             }
             files = {
                 'data': ('metadata', json.dumps(para), 'application/json; charset=UTF-8'),
