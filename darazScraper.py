@@ -1,4 +1,5 @@
 # lib imports
+
 from selenium import webdriver
 import time
 import urllib.request
@@ -56,7 +57,7 @@ class Products: # making class of product & using all the functions in it
         for img in imgUrls[4:]:
             x = img.get_attribute('src')
             if 'webp' in x:
-                x = x.replace('120x120', '720x720') #converting all the images to 720'px
+                x = x.replace('120x120', '720x720') # converting all the images to 720'px
                 l.append(x)
             if 'png' in x:
                 break
