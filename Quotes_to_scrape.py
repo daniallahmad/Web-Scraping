@@ -1,11 +1,11 @@
-import requests
-from bs4 import BeautifulSoup
-import gsheet
-import time
+#importing libraries
+import requests  #importing request to open web url
+from bs4 import BeautifulSoup #using beautiful soup for getting data
+
+
 k = 1
-count = 2
 while k <= 10:
-    url = 'https://quotes.toscrape.com/page/'+str(k)+'/'
+    url = 'https://quotes.toscrape.com/page/'+str(k)+'/' #url to be scraped
     r = requests.get(url)
     page = BeautifulSoup(r.text, 'lxml')
     i = 0
@@ -16,10 +16,9 @@ while k <= 10:
         tag = tag.replace('Tags:', '')
         tag = tag.replace('\n', ' ')
         tag = tag.strip()
-        gsheet.sheet.update_cell(count, 1, quote)
-        gsheet.sheet.update_cell(count, 2, author)
-        gsheet.sheet.update_cell(count, 3, tag)
+        print(quote)
+        print(author)
+        print(tag)
         i = i+1
         time.sleep(5)
-        count += 1
     k = k+1
